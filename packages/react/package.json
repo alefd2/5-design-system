@@ -1,5 +1,5 @@
 {
-  "name": "@alef-ui/tokens",
+  "name": "@alef-ui/react",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@alef-ui/tokens": "*",
     "@alef-ui/ts-config": "*",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2"
