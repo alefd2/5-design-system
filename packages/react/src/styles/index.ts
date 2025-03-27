@@ -1,11 +1,21 @@
-import { themeMap } from "./theme.css"
+import {
+  colors,
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  radii,
+  space,
+} from "@alef-ui/tokens"
 
-export const applyTheme = <
-  Property extends keyof typeof themeMap,
-  Value extends keyof (typeof themeMap)[Property],
->(
-  property: Property,
-  value: Value
-) => {
-  return { [property]: themeMap[property][value] }
-}
+export const theme = {
+  colors,
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  radii,
+  space,
+} as const
+
+export type Theme = typeof theme

@@ -25,7 +25,9 @@
     "@alef-ui/tokens": "*",
     "@alef-ui/ts-config": "*",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "phosphor-react": "^1.4.1",
+    "polished": "^4.2.2"
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
