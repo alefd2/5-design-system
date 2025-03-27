@@ -1,4 +1,12 @@
 {
   "extends": "@alef-ui/ts-config/react.json",
-  "include": ["src"]
+  "include": ["src"],
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": true,
+    "esModuleInterop": true
+  }
 }

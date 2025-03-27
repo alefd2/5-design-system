@@ -1,4 +1,8 @@
 {
   "extends": "@alef-ui/ts-config/react.json",
-  "include": ["src"]
+  "include": ["src"],
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Node"
+  }
 }
