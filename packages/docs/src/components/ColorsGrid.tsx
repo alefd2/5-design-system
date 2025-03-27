@@ -1,5 +1,5 @@
 import { colors } from "@alef-ui/tokens";
-
+import { getContrast } from "polished";
 export function ColorsGrid() {
   return Object.entries(colors).map(([key, color]) => {
     return (
@@ -9,7 +9,7 @@ export function ColorsGrid() {
             display: "flex",
             justifyContent: "space-between",
             fontFamily: "monospace",
-            color: "#fff",
+            color: getContrast(color, "#fff") > 3.5 ? "#fff" : "#000",
           }}
         >
           <strong>${key}:</strong>
