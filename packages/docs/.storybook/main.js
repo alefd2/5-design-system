@@ -10,16 +10,14 @@ function getAbsolutePath(value) {
 
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
-  stories: ["../src/pages/**/*.stories.mdx", "../src/stories/**/*.stories.tsx"],
+  stories: ["../src/pages/**/*.mdx", "../src/stories/**/*.stories.tsx"],
   addons: [
     {
       name: getAbsolutePath("@storybook/addon-essentials"),
-      options: {
-        docs: false,
-      },
+      options: { docs: false },
     },
-
     getAbsolutePath("@storybook/addon-onboarding"),
+    getAbsolutePath("@storybook/addon-docs"),
     getAbsolutePath("@chromatic-com/storybook"),
     getAbsolutePath("@storybook/addon-interactions"),
   ],
