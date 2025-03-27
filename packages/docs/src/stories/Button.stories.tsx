@@ -38,6 +38,7 @@ export const Small: StoryObj<ButtonProps> = {
 
 export const WithIcon: StoryObj<ButtonProps> = {
   args: {
+    size: "md",
     children: (
       <>
         Próximo passo

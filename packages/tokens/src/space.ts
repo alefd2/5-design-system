@@ -8,7 +8,7 @@ export const space = {
   7: "1.75rem",
   8: "2rem",
   10: "2.5rem",
-  12: "3rem",
+  w: "3rem",
   16: "4rem",
   20: "5rem",
   40: "10rem",

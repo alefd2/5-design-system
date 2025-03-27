@@ -57,22 +57,25 @@ const variantStyles = {
 
 const sizeStyles = {
   sm: css`
-    height: ${theme.space[2]};
+    font-size: ${theme.fontSizes.sm};
+    height: ${theme.space[8]};
+    padding: ${theme.space[3]} ${theme.space[6]};
   `,
   md: css`
-    height: ${theme.space[3]};
+    font-size: ${theme.fontSizes.md};
+    height: ${theme.space[12]};
+    padding: ${theme.space[3]} ${theme.space[6]};
   `,
 };
 
 export const Button = styled.button<ButtonProps>`
   all: unset;
-  border-radius: ${theme.radii.sm};
-  font-size: ${theme.fontSizes.sm};
+  border-radius: ${theme.radii.md};
+  font-size: ${theme.fontSizes.md};
   font-weight: ${theme.fontWeights.medium};
   text-align: center;
   min-width: 120px;
   box-sizing: border-box;
-  padding: ${theme.space[4]};
   display: flex;
   align-items: center;
   justify-content: center;
