@@ -13,5 +13,8 @@
   },
   "devDependencies": {
     "turbo": "^2.4.4"
+  },
+  "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.3"
   }
 }

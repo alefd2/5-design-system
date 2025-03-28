@@ -28,6 +28,13 @@ const config = {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
+  async viteFinal(config) {
+    config.optimizeDeps = {
+      ...(config.optimizeDeps || {}),
+      include: ["react", "react-dom"],
+    };
+    return config;
+  },
 };
 
 export default config;
