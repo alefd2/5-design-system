@@ -24,6 +24,7 @@ const variantStyles = {
       background-color: ${theme.colors.gray200};
     }
   `,
+
   secondary: css`
     color: ${theme.colors.ignite300};
     border-color: ${theme.colors.ignite500};

@@ -25,13 +25,14 @@
   },
   "peerDependencies": {
     "react": "^19.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^19.0.0"
   },
   "dependencies": {
     "@types/classnames": "^2.3.4",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "autoprefixer": "^10.4.21",
+    "@radix-ui/react-checkbox": "^1.0.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "postcss": "^8.5.3"
