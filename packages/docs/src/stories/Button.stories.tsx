@@ -11,6 +11,22 @@ export default {
     size: "md",
     disabled: false,
   },
+  argTypes: {
+    variant: {
+      options: ["primary", "secondary", "tertiary"],
+      control: { type: "radio" },
+    },
+    size: {
+      options: ["sm", "md"],
+      control: { type: "radio" },
+    },
+    disabled: {
+      control: { type: "boolean" },
+    },
+    onClick: {
+      action: "click",
+    },
+  },
 } as Meta;
 
 export const Primary: StoryObj<ButtonProps> = {};

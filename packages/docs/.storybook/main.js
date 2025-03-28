@@ -24,6 +24,7 @@ const config = {
     getAbsolutePath("@storybook/addon-docs"),
     getAbsolutePath("@chromatic-com/storybook"),
     getAbsolutePath("@storybook/addon-interactions"),
+    getAbsolutePath("@storybook/addon-a11y"),
   ],
   core: {
     builder: "@storybook/builder-vite",
