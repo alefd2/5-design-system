@@ -7,13 +7,13 @@ on:
 
 permissions:
   contents: write
-  packages: write # Permissão para publicar no NPM
+  packages: write
 
 jobs:
-  release-and-deploy:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do repositório
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           persist-credentials: false
@@ -28,39 +28,18 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
-      - name: Build dos pacotes (Turborepo)
-        run: npm run build
-        env:
-          TURBO_TOKEN: E2BjVAIjEg2lMd2CA81H3zoM
-          TURBO_TEAM: alefd2s-projects
-
-      - name: Build do Storybook
-        working-directory: ./packages/docs
-        run: npm run build
-
-      - name: Criar .nojekyll
-        run: touch ./packages/docs/storybook-static/.nojekyll
-
       - name: Configurar Git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-      - name: Criar release (Changesets)
-        run: |
-          npm run version  # ou o comando específico para criar a versão, baseado no seu setup de Changesets ou versão do projeto
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Publish to NPM
+        id: changesets
+        uses: changesets/action@v1
         run: |
           npm publish --access public  # Publica o pacote no NPM
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Token do NPM necessário
-
-      - name: Deploy do Storybook
-        working-directory: ./packages/docs
-        run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          TURBO_TOKEN: E2BjVAIjEg2lMd2CA81H3zoM
+          TURBO_TEAM: alefd2s-projects
