@@ -1,46 +1,36 @@
-name: Release and Deploy Docs
+name: Release
 
 on:
   push:
     branches:
       - main
 
-permissions:
-  contents: write
-  packages: write
-
 concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
           cache: "npm"
           cache-dependency-path: "**/package-lock.json"
 
-      - name: Instalar dependências
-        run: npm ci
-
-      - name: Configurar Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+      - run: npm ci
 
       - name: Publish to NPM
         id: changesets
         uses: changesets/action@v1
-        run: |
-          npm publish --access public  # Publica o pacote no NPM
+        with:
+          publish: npm run release
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          TURBO_TOKEN: E2BjVAIjEg2lMd2CA81H3zoM
+          TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           TURBO_TEAM: alefd2s-projects
