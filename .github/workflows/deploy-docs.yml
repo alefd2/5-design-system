@@ -5,12 +5,17 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write # Permissão necessária para criar a branch `gh-pages`
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false # Desativar credenciais padrão para evitar conflitos
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -31,6 +36,12 @@ jobs:
 
       - name: Criar .nojekyll
         run: touch ./packages/docs/storybook-static/.nojekyll
+
+      - name: Configurar Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
       - name: Deploy do Storybook
         working-directory: ./packages/docs
