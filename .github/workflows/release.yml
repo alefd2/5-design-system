@@ -9,6 +9,7 @@ permissions:
   contents: write
   packages: write
 
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
     runs-on: ubuntu-latest
