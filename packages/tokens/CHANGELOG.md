@@ -4,7 +4,6 @@
 
 ### Minor Changes
 
-- add new token color.
 - 2006cb3: add new color token
 
 ## 3.1.0
