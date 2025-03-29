@@ -9,7 +9,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
   contents: write # Permissão para ler e escrever o conteúdo do repositório
-  pull-requests: write # Permissão para criar PRs
+  pull-requests: write # Permissão para criar PRs, se necessário
 
 jobs:
   release:
@@ -28,12 +28,13 @@ jobs:
 
       - run: npm ci
 
+      - name: Version Packages
+        run: npm run version-packages
+
       - name: Publish to NPM
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: npm run release
-          create-release-pr: false # Desabilitar criação automática de PR
+        id: publish
+        run: |
+          npm run release  # Comando para publicação do NPM
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
