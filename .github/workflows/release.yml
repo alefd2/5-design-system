@@ -7,6 +7,10 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+permissions:
+  contents: write # Permissão para ler e escrever o conteúdo do repositório
+  pull-requests: write # Permissão para criar PRs
+
 jobs:
   release:
     name: Release
@@ -29,8 +33,9 @@ jobs:
         uses: changesets/action@v1
         with:
           publish: npm run release
+          create-release-pr: false # Desabilitar criação automática de PR
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: alefd2s-projects
