@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write # Permissão necessária para criar a branch `gh-pages`
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v3
         with:
-          persist-credentials: false # Desativar credenciais padrão para evitar conflitos
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
