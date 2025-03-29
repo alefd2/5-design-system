@@ -2,6 +2,8 @@
   "name": "@alef-ui/eslint-config",
   "license": "MIT",
   "private": true,
+  "version": "3.0.0",
+  "description": "ESLint configuration for Alef UI",
   "main": "index.js",
   "dependencies": {
     "eslint-config-prettier": "^9.1.0",
@@ -14,7 +16,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^3.2.5",
-    "@typescript-eslint/parser": "^6.21.0",    
+    "@typescript-eslint/parser": "^6.21.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0"
   }
 }
