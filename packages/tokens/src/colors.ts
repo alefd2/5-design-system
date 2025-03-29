@@ -18,4 +18,5 @@ export const colors = {
 
   test: "#fff",
   test2: "#f0ff00",
+  pink: "#ff00ff",
 }
