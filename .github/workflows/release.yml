@@ -8,8 +8,8 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
-  contents: write # Permissão para ler e escrever o conteúdo do repositório
-  pull-requests: write # Permissão para criar PRs, se necessário
+  contents: write
+  pull-requests: write
 
 jobs:
   release:
@@ -27,9 +27,6 @@ jobs:
           cache-dependency-path: "**/package-lock.json"
 
       - run: npm ci
-
-      - name: Version Packages
-        run: npm run version-packages
 
       - name: Publish to NPM
         id: publish
