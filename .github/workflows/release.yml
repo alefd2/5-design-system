@@ -44,7 +44,7 @@ jobs:
           commit: "chore: release new version"
           title: "chore: release new version"
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }} # Agora usa o PAT para permitir PRs
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           TURBO_TOKEN: E2BjVAIjEg2lMd2CA81H3zoM
           TURBO_TEAM: alefd2s-projects
